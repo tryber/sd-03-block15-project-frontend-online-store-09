@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import ShoppingCartButton from "./ShoppingCartButton";
+import React, { Component } from 'react';
+import ShoppingCartButton from './ShoppingCartButton';
 
 export class MainPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { search: "" };
+    this.state = { search: '' };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -22,7 +22,7 @@ export class MainPage extends Component {
           justifyContent: "space-between",
           padding: "10px 10px 5px 10px",
           border: "1px solid black",
-          margin: "5px 5px 5px 5px"
+          margin: "5px 5px 5px 5px",
         }}
       >
         <header>
