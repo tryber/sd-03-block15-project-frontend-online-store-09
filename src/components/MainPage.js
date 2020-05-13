@@ -33,9 +33,9 @@ export class MainPage extends Component {
             </p>
             <input value={this.state.search} onChange={this.handleChange} />
           </div>
-        <div>
-          <Category />
-        </div>
+          <div>
+            <Category />
+          </div>
         </header>
         <ShoppingCartButton />
       </div>
