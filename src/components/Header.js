@@ -5,7 +5,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { search: "" };
+    this.state = { search: '' };
     this.handleChange = this.handleChange.bind(this);
   }
 
