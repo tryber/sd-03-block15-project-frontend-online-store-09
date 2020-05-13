@@ -26,8 +26,9 @@ class Category extends React.Component {
     const categories = this.state.categories;
 
     return categories.map(({ id, name }) => (
-      <div key={id} data-testid="category">
+      <div key={id}>
         <Link
+          data-testid="category"
           to={`/categories/${id}`}
           id={id}
           name="categories">
@@ -41,16 +42,15 @@ class Category extends React.Component {
     const { loading } = this.state;
     if (loading) return <p>loading</p>;
     return (
-      <div data-testid="category">
+      <div >
         <Link
           to="/shoppingCart"
-          data-testid="shopping-cart-button"
           onClick={() => this.setState({
             xablau: !this.state.xablau,
           })}>
           Categorias
         </Link>
-        {this.state.xablau && this.listCategory()}
+        {this.listCategory()}
       </div>
     );
   }
