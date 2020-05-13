@@ -1,11 +1,19 @@
 import React from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import Category from './Category';
 
 function App() {
   return (
-    <div className="App">
-      {/* <p>projeto</p> */}
-    </div>
+    <Router>
+      <Switch>
+        <Route to="/categories" render={(props) => <Category {...props} />} />
+      </Switch>
+    </Router>
   );
 }
 
