@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingCartButton from './ShoppingCartButton';
+import Category from './Category';
 
 export class MainPage extends Component {
   constructor(props) {
@@ -31,6 +32,9 @@ export class MainPage extends Component {
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>
             <input value={this.state.search} onChange={this.handleChange} />
+          </div>
+          <div>
+            <Category />
           </div>
         </header>
         <ShoppingCartButton />
