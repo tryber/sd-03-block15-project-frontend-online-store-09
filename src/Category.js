@@ -7,17 +7,13 @@ class Category extends React.Component {
     super(props);
     this.state = {
       categories: [],
-      loading: true,
     };
     this.listCategory = this.listCategory.bind(this);
   }
 
   componentDidMount() {
     api.getCategories().then((categories) => {
-      this.setState({
-        categories,
-        loading: false,
-      });
+      this.setState({ categories });
     });
   }
 
@@ -29,18 +25,15 @@ class Category extends React.Component {
         <Link
           data-testid="category"
           to={`/categories/${id}`}
-          id={id}
           name="categories"
         >
           {name}
         </Link>
       </div>
-    ));
+    ))
   }
 
   render() {
-    const { loading } = this.state;
-    if (loading) return <p>loading</p>;
     return (
       <div >
         <Link to="/shoppingCart">Categorias</Link>
