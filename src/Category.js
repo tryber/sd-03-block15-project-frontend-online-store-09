@@ -28,7 +28,7 @@ class Category extends React.Component {
           {name}
         </Link>
       </div>
-    ))
+    ));
   }
 
   render() {
