@@ -23,7 +23,6 @@ class Category extends React.Component {
         <Link
           data-testid="category"
           to={`/categories/${id}`}
-          id={id}
           name="categories"
         >
           {name}
