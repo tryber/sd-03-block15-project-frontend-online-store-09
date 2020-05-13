@@ -10,7 +10,7 @@ class ShoppingCartButton extends React.Component {
     }
     this.changeState = this.changeState.bind(this);
   }
-  changeState = () => {
+  changeState() {
     console.log(this.state.page);
     this.setState({page: !this.state.page});
   }
