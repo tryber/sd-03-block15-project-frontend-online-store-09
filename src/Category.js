@@ -8,7 +8,6 @@ class Category extends React.Component {
     this.state = {
       categories: [],
       loading: true,
-      xablau: false,
     };
     this.listCategory = this.listCategory.bind(this);
   }
@@ -22,7 +21,7 @@ class Category extends React.Component {
     });
   }
 
-  listCategory = () => {
+  listCategory() {
     const categories = this.state.categories;
 
     return categories.map(({ id, name }) => (
@@ -43,13 +42,7 @@ class Category extends React.Component {
     if (loading) return <p>loading</p>;
     return (
       <div >
-        <Link
-          to="/shoppingCart"
-          onClick={() => this.setState({
-            xablau: !this.state.xablau,
-          })}>
-          Categorias
-        </Link>
+        <Link to="/shoppingCart">Categorias</Link>
         {this.listCategory()}
       </div>
     );
