@@ -16,7 +16,7 @@ export class MainPage extends Component {
   render() {
     return (
       <div>
-        <p data-testid='home-initial-message'>
+        <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <input value={this.state.search} onChange={this.handleChange} />
