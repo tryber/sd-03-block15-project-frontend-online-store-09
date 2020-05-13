@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import *as api from './services/api';
+import * as api from './services/api';
 
 class Category extends React.Component {
   constructor(props) {
@@ -30,11 +30,12 @@ class Category extends React.Component {
           data-testid="category"
           to={`/categories/${id}`}
           id={id}
-          name="categories">
-        {name}
+          name="categories"
+        >
+          {name}
         </Link>
       </div>
-    ));
+    ))
   };
 
   render() {
