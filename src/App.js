@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import MainPage from './componets/MainPage';
-import ShoppingCart from './componets/ShoppingCart';
+import Category from './components/Category';
+import MainPage from './components/MainPage'
+import ShoppingCart from './components/ShoppingCart'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/cart" component={ShoppingCart} />
+        <Route to="/categories" render={(props) => <Category {...props} />} />
       </Switch>
     </Router>
   );
