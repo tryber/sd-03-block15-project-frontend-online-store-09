@@ -4,7 +4,7 @@ import ShoppingCart from './ShoppingCart';
 import Home from './Home';
 
 class Routes extends React.Component {
-  render (){
+  render() {
     return (
       <Switch>
         <Route exact path="/" Component={Home} />
