@@ -35,8 +35,8 @@ class Category extends React.Component {
           {name}
         </Link>
       </div>
-    ))
-  };
+    ));
+  }
 
   render() {
     const { loading } = this.state;
