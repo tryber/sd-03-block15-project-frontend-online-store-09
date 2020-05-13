@@ -9,7 +9,6 @@ export class MainPage extends Component {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          padding: '10px 10px 5px 10px',
           border: '1px solid black',
           margin: '5px',
         }}
