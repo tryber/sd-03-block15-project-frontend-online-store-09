@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Product from './Product';
+import './ProductList.css';
 
 export class ProductList extends Component {
   render() {
@@ -10,7 +11,7 @@ export class ProductList extends Component {
         return <p>Nenhum Produto foi encontrado</p>;
       }
       return (
-        <div>
+        <div className="display-products">
           {products.results.map((product) => (
             <Product product={product} key={product.id} />
           ))}
