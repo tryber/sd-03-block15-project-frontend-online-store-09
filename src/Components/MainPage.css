@@ -1,0 +1,15 @@
+.aside-MainPage {
+  border: 1px solid black;
+  margin: 5px;
+  width: 15%;
+}
+
+.div-MainPage {
+  border: 1px solid black;
+  display: flex;
+  float: right;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 10px 10px 5px;
+  width: 80%;
+}
