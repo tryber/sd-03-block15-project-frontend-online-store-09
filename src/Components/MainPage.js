@@ -12,9 +12,6 @@ export class MainPage extends Component {
           <SearchComponent />
           <ShoppingCartButton />
         </header>
-        <aside className="aside-MainPage">
-          <Category />
-        </aside>
       </div>
     );
   }
