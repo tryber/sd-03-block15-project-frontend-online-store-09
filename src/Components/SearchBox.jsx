@@ -6,10 +6,10 @@ export class SearchBox extends Component {
     const { handleClick, searchText, handleChange } = this.props;
     return (
       <div>
-        <div className="a">
+        <div>
           <input
             data-testid="query-input"
-            className="c"
+            className="inputArea"
             value={searchText}
             onChange={handleChange}
           />

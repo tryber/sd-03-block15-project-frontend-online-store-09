@@ -1,14 +1,4 @@
-.a {
-  height: 100px;
-  margin: auto;
-  width: 80%;
-}
-
-.b {
-  text-align: center;
-}
-
-.c {
+.inputArea {
   border-radius: 5px;
-  width: 100%;
+  width: 85%;
 }
