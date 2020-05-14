@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
+import Category from './Category';
+import './MainPage.css';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
 
@@ -9,11 +11,18 @@ class SearchComponent extends Component {
     super(props);
 
     this.state = {
+      category: [],
       selectedCategory: '',
       searchText: '',
       products: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
+  }
+
+  componentDidMount() {
+    Api.getCategories().then((category) => {
+      this.setState({ category });
+    });
   }
 
   searchProducts() {
@@ -25,18 +34,34 @@ class SearchComponent extends Component {
   }
 
   render() {
-    const { searchText, products } = this.state;
+    const { searchText, products, category, selectedCategory } = this.state;
     return (
       <div>
-        <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
-        <SearchBox
-          handleClick={() => this.searchProducts}
-          searchText={searchText}
-          handleChange={(e) => this.setState({ searchText: e.target.value })}
-        />
-        <ProductList products={products} />
+        <div style={{ display: 'flex' }}>
+          <div>
+            <Category
+              selectedCategory={selectedCategory}
+              categories={category}
+              onChangeCategory={(e) => {
+                this.setState({ selectedCategory: e.target.value });
+                setTimeout(() => this.searchProducts(), 500);
+              }}
+            />
+          </div>
+          <div>
+            <p data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </p>
+            <SearchBox
+              handleClick={() => this.searchProducts}
+              searchText={searchText}
+              handleChange={(event) =>
+                this.setState({ searchText: event.target.value })
+              }
+            />
+            <ProductList products={products} />
+          </div>
+        </div>
       </div>
     );
   }
