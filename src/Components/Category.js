@@ -3,20 +3,19 @@ import React from 'react';
 class Category extends React.Component {
 
   render() {
-    const { onChange, categories } = this.props;
+    const { onChangeCategory, categories, selectedCategory } = this.props;
     return categories.map(({ id, name }) => (
       <div key={id}>
-        <label htmlFor={id}>{name}</label>
         <input
-          checked
-          type="radio"
-          onChange={onChange}
-          id={id}
-          name="category"
           data-testid="category"
-          to="/"
-          name="categories"
+          type="radio"
+          id={id}
+          value={id}
+          name="category"
+          checked={selectedCategory === id}
+          onChange={onChangeCategory}
         />
+        <label htmlFor={id}>{name}</label>
       </div>
     ));
   }

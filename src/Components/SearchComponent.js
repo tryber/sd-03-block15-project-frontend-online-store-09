@@ -11,54 +11,59 @@ class SearchComponent extends Component {
     super(props);
 
     this.state = {
+      category: [],
       selectedCategory: '',
       searchText: '',
-      searchCategory: '',
       products: [],
-      category: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
-    this.listProducts = this.listProducts.bind(this);
+  }
+
+  componentDidMount() {
+    Api.getCategories().then((category) => {
+      this.setState({ category });
+    });
   }
 
   searchProducts() {
     const { searchText, selectedCategory } = this.state;
     Api.getProductsFromCategoryAndQuery(
       selectedCategory,
-      searchText,
+      searchText
     ).then((products) => this.setState({ products }));
   }
 
-  listProducts(event) {
-    const categorieId = event.target.name;
-    const searchCategory = this.state;
-    Api.getProductsFromCategoryAndQuery(categorieId, searchCategory)
-    .then(category => {
-      this.setState({ category });
-      console.log(categorieId);
-    });
-  }
-  componentDidMount() {
-    Api.getCategories()
-    .then((category) => this.setState({ category }));
-  }
-
   render() {
-    const { searchText, products, category } = this.state;
+    const { searchText, products, category, selectedCategory } = this.state;
     return (
       <div>
-        <aside className="aside-MainPage">
-          <Category onChange={this.listProducts} categories={category}/>
-        </aside>
-        <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
-        <SearchBox
-          handleClick={() => this.searchProducts}
-          searchText={searchText}
-          handleChange={(event) => this.setState({ searchText: event.target.value })}
-        />
-        <ProductList products={products} />
+      <div style={{ display: "flex" }}>
+        <div>
+          <Category
+            selectedCategory={selectedCategory}
+            categories={category}
+            onChangeCategory={(e) => {
+              this.setState({ selectedCategory: e.target.value });
+              setTimeout(() => this.searchProducts(), 500);
+            }}
+          />
+        </div>
+        <div>
+          <p data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+          <SearchBox
+            handleClick={() => this.searchProducts}
+            searchText={searchText}
+            handleChange={(event) =>
+              this.setState({ searchText: event.target.value })
+            }
+          />
+        <div>
+          <ProductList products={products} />
+        </div>
+        </div>
+      </div>
       </div>
     );
   }
