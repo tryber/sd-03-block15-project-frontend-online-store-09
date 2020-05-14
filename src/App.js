@@ -11,8 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/cart" component={ShoppingCart} />
-        <Route exact to="/categories/:id" component={Category} />
-        <Route exact to="/categories" render={(props) => <Category {...props} />} />
+
       </Switch>
     </Router>
   );
