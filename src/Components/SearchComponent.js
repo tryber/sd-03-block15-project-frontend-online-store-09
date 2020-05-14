@@ -38,7 +38,10 @@ class SearchComponent extends Component {
       console.log(categorieId);
     });
   }
-
+  componentDidMount() {
+    Api.getCategories()
+    .then((category) => this.setState({ category }));
+  }
 
   render() {
     const { searchText, products, category } = this.state;
