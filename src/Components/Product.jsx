@@ -6,7 +6,7 @@ export class Product extends Component {
     const { product: { title, price, thumbnail } } = this.props;
     return (
       <div className="product">
-        <div style={{ width: '18rem'}} data-testid="product">
+        <div style={{ width: '18rem' }} data-testid="product">
           <img
             src={thumbnail}
             alt={`${title} thumbnail`}
