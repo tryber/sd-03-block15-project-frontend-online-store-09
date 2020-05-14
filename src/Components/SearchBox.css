@@ -1,7 +1,7 @@
 .a {
-  width: 80%;
-  margin: auto;
   height: 100px;
+  margin: auto;
+  width: 80%;
 }
 
 .b {
@@ -9,6 +9,6 @@
 }
 
 .c {
-  width: 100%; 
   border-radius: 5px;
+  width: 100%; 
 }

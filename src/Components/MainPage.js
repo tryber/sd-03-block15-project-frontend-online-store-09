@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ShoppingCartButton from './ShoppingCartButton';
 import Category from './Category'
-import SearchBar from '../Components/SearchBar';
+import SearchComponent from '../Components/SearchComponent';
 import '../Components/MainPage.css'
 
 export class MainPage extends Component {
@@ -9,7 +9,7 @@ export class MainPage extends Component {
     return (
       <div>
         <header className='div-MainPage'>
-          <SearchBar />
+          <SearchComponent />
           <ShoppingCartButton />
         </header>
         <aside className="aside-MainPage">

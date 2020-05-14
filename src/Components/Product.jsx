@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export class Product extends Component {
   render() {
-    const { product: { title, price, thumbnail, id } } = this.props;
+    const { product: { title, price, thumbnail } } = this.props;
     return (
       <div >
         <div style={{ width: '18rem' }} data-testid="product">
@@ -17,12 +17,7 @@ export class Product extends Component {
               R$
               {price}
             </p>
-            <Link
-              to={{ pathname: `/product/${id}`, state: { title, thumbnail, price } }}
-              data-testid="product-detail-link"
-            >
               Detalhes
-            </Link>
           </div>
         </div>
       </div>
