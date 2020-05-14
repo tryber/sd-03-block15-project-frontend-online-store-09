@@ -29,7 +29,7 @@ class SearchComponent extends Component {
     const { searchText, selectedCategory } = this.state;
     Api.getProductsFromCategoryAndQuery(
       selectedCategory,
-      searchText
+      searchText,
     ).then((products) => this.setState({ products }));
   }
 
@@ -37,33 +37,31 @@ class SearchComponent extends Component {
     const { searchText, products, category, selectedCategory } = this.state;
     return (
       <div>
-      <div style={{ display: "flex" }}>
-        <div>
-          <Category
-            selectedCategory={selectedCategory}
-            categories={category}
-            onChangeCategory={(e) => {
-              this.setState({ selectedCategory: e.target.value });
-              setTimeout(() => this.searchProducts(), 500);
-            }}
-          />
+        <div style={{ display: 'flex' }}>
+          <div>
+            <Category
+              selectedCategory={selectedCategory}
+              categories={category}
+              onChangeCategory={(e) => {
+                this.setState({ selectedCategory: e.target.value });
+                setTimeout(() => this.searchProducts(), 500);
+              }}
+            />
+          </div>
+          <div>
+            <p data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </p>
+            <SearchBox
+              handleClick={() => this.searchProducts}
+              searchText={searchText}
+              handleChange={(event) =>
+                this.setState({ searchText: event.target.value })
+              }
+            />
+            <ProductList products={products} />
+          </div>
         </div>
-        <div>
-          <p data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </p>
-          <SearchBox
-            handleClick={() => this.searchProducts}
-            searchText={searchText}
-            handleChange={(event) =>
-              this.setState({ searchText: event.target.value })
-            }
-          />
-        <div>
-          <ProductList products={products} />
-        </div>
-        </div>
-      </div>
       </div>
     );
   }
