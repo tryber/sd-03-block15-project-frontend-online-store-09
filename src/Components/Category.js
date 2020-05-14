@@ -57,8 +57,8 @@ class Category extends React.Component {
             flexWrap: 'wrap',
             margin: '5px',
           }}>
-            {products.map(({ title, price, thumbnail, id }) =>
-            <Product key={id} title={title} price={price} imagePath={thumbnail}/>)}
+            {products.map((product) =>
+            <Product key={product.id} product={product} />)}
           </div>
         }
       </div>
