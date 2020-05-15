@@ -3,7 +3,7 @@ import ListDetails from './LIstDetails';
 
 export class Product extends Component {
   render() {
-    const { product: { title, price, thumbnail, id } } = this.props;
+    const { product: { title, price, thumbnail } } = this.props;
     return (
       <div className="product">
         <div style={{ width: '18rem' }} data-testid="product">
@@ -17,13 +17,12 @@ export class Product extends Component {
               R$
               {price}
             </p>
-            <ListDetails value={
-              {
+            <ListDetails
+              value={{
                 title,
                 price,
                 thumbnail,
-              }
-            }
+              }}
             />
           </div>
         </div>
