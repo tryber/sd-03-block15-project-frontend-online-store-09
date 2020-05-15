@@ -4,22 +4,17 @@ import { Link } from 'react-router-dom';
 // import {Link} from 'react-router-dom'
 
 export class Product extends Component {
-constructor(props) {
-  super(props)
-
-  this.state = {
-     ids: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      ids: [],
+    }
   }
-}
-
-  console() {
-    return console.log(this.props.title)
+  addToLocalStorage(id, title) {
+    localStorage.setItem(`${id}`, title)
   }
-
-
   render() {
     const { product: { title, price, thumbnail, id } } = this.props;
-    console.log(id)
     return (
       <div className="product">
         <div style={{ width: '18rem' }} data-testid="product">
@@ -41,8 +36,9 @@ constructor(props) {
               }}
             />
           </div>
-          {/* <Link>
-          </Link> */}
+          <button onClick={() => this.addToLocalStorage(id, title)}>
+            Add
+          </button>
         </div>
       </div>
     );
