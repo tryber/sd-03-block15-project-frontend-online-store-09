@@ -17,8 +17,14 @@ export class Product extends Component {
               R$
               {price}
             </p>
-              <ListDetails value={{ title, price, thumbnail }} />
-              <div>{id}</div>
+            <ListDetails value={
+              {
+                title,
+                price,
+                thumbnail,
+              }
+            }
+            />
           </div>
         </div>
       </div>

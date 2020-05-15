@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import Category from './Category';
 import './MainPage.css';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
-import ListDetails from './LIstDetails';
 
 class SearchComponent extends Component {
   constructor(props) {

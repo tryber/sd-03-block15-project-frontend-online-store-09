@@ -2,13 +2,9 @@ import React from 'react';
 import './DetailsProduct.css';
 
 class test extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { title, price, thumbnail } = this.props.location.state.value;
-    
+
     return (
       <div data-testid="product-detail-name">
         <div className="box-product">
@@ -24,7 +20,7 @@ class test extends React.Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
 }
 export default test;
