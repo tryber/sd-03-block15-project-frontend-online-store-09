@@ -4,6 +4,7 @@ import './DetailsProduct.css';
 class test extends React.Component {
   render() {
     const { title, price, thumbnail } = this.props.location.state.value;
+    console.log(this.props)
 
     return (
       <div data-testid="product-detail-name">
@@ -16,8 +17,9 @@ class test extends React.Component {
           <h2>Detalhes</h2>
           <ul>
             <li>{title}</li>
-            <li>{price}</li>
+            <li>{`Preço: R$ ${price.toFixed(2)}`}</li>
           </ul>
+          <textarea data-testid='product-detail-evaluation'></textarea>
         </div>
       </div>
     );
