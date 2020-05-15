@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
+import ShoppingCart from './ShoppingLink';
 
 export class Product extends Component {
   render() {
@@ -24,6 +25,12 @@ export class Product extends Component {
                 thumbnail,
               }}
             />
+            <ShoppingCart
+              value={{
+                title,
+                price,
+                thumbnail,
+              }}/>
           </div>
         </div>
       </div>
