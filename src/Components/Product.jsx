@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import ListDetails from './LIstDetails';
 
 export class Product extends Component {
   render() {
@@ -17,7 +17,13 @@ export class Product extends Component {
               R$
               {price}
             </p>
-              Detalhes
+            <ListDetails
+              value={{
+                title,
+                price,
+                thumbnail,
+              }}
+            />
           </div>
         </div>
       </div>

@@ -1,0 +1,15 @@
+.box-product {
+  background-color: antiquewhite;
+  border: double;
+  margin: 10px;
+  text-align: center;
+  width: max-content;
+}
+
+.details {
+  background-color: antiquewhite;
+  border: double;
+  margin: 20px;
+  text-align: left;
+  width: max-content;
+}
