@@ -10,8 +10,9 @@ export class Product extends Component {
       ids: [],
     }
   }
-  addToLocalStorage(id, title) {
-    localStorage.setItem(`${id}`, title)
+  addToLocalStorage(title, price, thumbnail, id) {
+    const storageJson = JSON.stringify({ title, price, thumbnail });
+    localStorage.setItem(`${id}`, storageJson);
   }
   render() {
     const { product: { title, price, thumbnail, id } } = this.props;
@@ -36,7 +37,7 @@ export class Product extends Component {
               }}
             />
           </div>
-          <button onClick={() => this.addToLocalStorage(id, title)}>
+          <button data-testid="product-add-to-cart" onClick={() => this.addToLocalStorage(title, price, thumbnail, id)}>
             Add
           </button>
         </div>

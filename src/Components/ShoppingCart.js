@@ -1,18 +1,34 @@
 import React from 'react';
-import * as Api from '../services/api';
 
 class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    }
+  }
   componentDidMount() {
-    const categoryId = '';
-    const ids = Object.values(localStorage);
-    ids.map(id => Api.getProductsFromCategoryAndQuery(id, categoryId)
-    .then((products => console.log(products)))
-    );
+    const products = localStorage;
+    const listProducts = [];
+    for (let i = 0; i < products.length; i += 1) {
+      let key = products.key(i);
+      let jsonProduct = window.localStorage.getItem(key);
+      listProducts.push(JSON.parse(jsonProduct));
+    }
+    this.setState({products: listProducts});
   }
   render() {
+    const { products } = this.state;
+    console.log(products)
     return (
       <div>
-        <p>Work in pro</p>
+        {products.map(({ title, price, thumbnail }) => (
+          <div key={title}>
+            <h1 data-testid="shopping-cart-product-name">{title}</h1>
+            <img src={thumbnail}/>
+            <p>{price}</p>
+          </div>
+        ))}
       </div>
     );
   }
