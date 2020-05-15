@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
-import ShoppingCart from './ShoppingLink';
+// import {Link} from 'react-router-dom'
 
 export class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ids: [],
+    }
+  }
+  addToLocalStorage(id, title) {
+    localStorage.setItem(`${id}`, title)
+  }
   render() {
-    const { product: { title, price, thumbnail } } = this.props;
+    const { product: { title, price, thumbnail, id } } = this.props;
     return (
       <div className="product">
         <div style={{ width: '18rem' }} data-testid="product">
@@ -25,13 +34,10 @@ export class Product extends Component {
                 thumbnail,
               }}
             />
-            <ShoppingCart
-              value={{
-                title,
-                price,
-                thumbnail,
-              }}/>
           </div>
+          <button onClick={() => this.addToLocalStorage(id, title)}>
+            Add
+          </button>
         </div>
       </div>
     );
