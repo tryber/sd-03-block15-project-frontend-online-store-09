@@ -14,6 +14,7 @@ class SearchComponent extends Component {
       selectedCategory: '',
       searchText: '',
       products: [],
+      cartItems: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
   }
@@ -30,6 +31,20 @@ class SearchComponent extends Component {
       selectedCategory,
       searchText,
     ).then((products) => this.setState({ products }));
+  }
+
+  addToCart(id, title, price) {
+    const {cartItems} = this.state;
+    const itemIndex = cartItems.findIndex((item) => item.id === id)
+    if(itemIndex !== -1) {
+      const updateCart = cartItems;
+      updateCart[itemIndex].quantity += 1;
+      this.setState({cartItems: updateCart})
+    } else {
+        this.setState({
+        cartItems: [...cartItems, {title, id, price, quantity: 1}]
+      })
+    }
   }
 
   render() {
