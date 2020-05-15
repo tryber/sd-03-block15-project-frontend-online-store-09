@@ -19,14 +19,15 @@ class ShoppingCart extends React.Component {
   }
   render() {
     const { products } = this.state;
-    console.log(products)
+    if(products.length === 0) return <p>Seu carrinho está vazio</p>;
     return (
       <div>
         {products.map(({ title, price, thumbnail }) => (
           <div key={title}>
             <h1 data-testid="shopping-cart-product-name">{title}</h1>
-            <img src={thumbnail}/>
+            <img alt="" src={thumbnail}/>
             <p>{price}</p>
+            <p data-testid="shopping-cart-product-quantity">1</p>
           </div>
         ))}
       </div>
