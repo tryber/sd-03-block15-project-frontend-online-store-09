@@ -21,7 +21,7 @@ describe('Requisito 8', () => {
     await waitFor(() => expect(api.getProductsFromCategoryAndQuery).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('product-add-to-cart')[0]);
     fireEvent.click(screen.getByTestId('shopping-cart-button'));
-    await waitFor(() => expect.skip(screen.getAllByTestId('shopping-cart-product-name')));
+    await waitFor(() => expect(screen.getAllByTestId('shopping-cart-product-name')));
     expect(screen.getByTestId('shopping-cart-product-name')).toHaveTextContent(mockedQueryResult.results[0].title);
     expect(screen.getByTestId('shopping-cart-product-quantity')).toHaveTextContent('1');
   });
