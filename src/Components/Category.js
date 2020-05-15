@@ -22,7 +22,6 @@ class Category extends React.Component {
       <div key={id}>
         <Link
           data-testid="category"
-          to={`/categories/${id}`}
           name="categories"
         >
           {name}
@@ -34,7 +33,7 @@ class Category extends React.Component {
   render() {
     return (
       <div >
-        <Link to="/shoppingCart">Categorias</Link>
+        <h3 to="/">Categorias</h3>
         {this.listCategory()}
       </div>
     );

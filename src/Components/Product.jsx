@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import ListDetails from './LIstDetails';
 
 export class Product extends Component {
   render() {
-    const { product: { title, price, thumbnail } } = this.props;
+    const { product: { title, price, thumbnail, id } } = this.props;
     return (
       <div className="product">
         <div style={{ width: '18rem' }} data-testid="product">
@@ -17,7 +17,8 @@ export class Product extends Component {
               R$
               {price}
             </p>
-              Detalhes
+              <ListDetails value={{ title, price, thumbnail }} />
+              <div>{id}</div>
           </div>
         </div>
       </div>

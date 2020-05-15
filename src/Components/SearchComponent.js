@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import SearchBox from './SearchBox';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
+import ListDetails from './LIstDetails';
 
 class SearchComponent extends Component {
   constructor(props) {
