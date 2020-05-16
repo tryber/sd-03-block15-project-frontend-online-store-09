@@ -12,14 +12,15 @@ class DetailsProduct extends React.Component {
           <h2>Produto</h2>
           <img src={thumbnail} alt={title} />
           <h3>{title}</h3>
-        </div>
-        <div className="details">
           <h2>Detalhes</h2>
           <ul>
             <li>{title}</li>
             <li>{`Preço: R$ ${price.toFixed(2)}`}</li>
           </ul>
-          <textarea placeholder="Digite sua avaliação" data-testid="product-detail-evaluation" />
+          <textarea
+            placeholder="Digite sua avaliação"
+            data-testid="product-detail-evaluation"
+          />
         </div>
       </div>
     );

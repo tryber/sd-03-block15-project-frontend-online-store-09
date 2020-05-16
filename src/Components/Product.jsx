@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
+import './ProductList.css'
 
 export class Product extends Component {
   constructor(props) {
     super(props);
     this.addToCart = this.addToCart.bind(this);
   }
+
   addToCart() {
     const { product } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -26,25 +28,24 @@ export class Product extends Component {
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     return (
-      <div>
-        <div style={{ width: '18rem' }} data-testid="product">
-          <img
+      <div className="product">
+        <div data-testid="product">
+          <img className="product-image"
             src={thumbnail}
             alt={`Foto de ${title}`}
           />
-          <div>
-            <h5 className="product">{title}</h5>
-            <p>R${price}</p>
+        <div className="line"></div>
+            <h5>{title}</h5>
+            <p className="priceStyle">R$ {price}</p>
             <ListDetails value={{ title, price, thumbnail }} />
-          </div>
-          <button
+          <button className="addToCartStyle"
             data-testid="product-add-to-cart"
             onClick={this.addToCart}
           >
             Adicionar ao Carrinho
           </button>
         </div>
-      </div>
+        </div>
     );
   }
 }

@@ -1,0 +1,11 @@
+.detailLinkStyle {
+  color: #888A8C;
+  text-decoration: none;
+}
+
+.detailLinkStyle:hover {
+  color: #404040;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-decoration: none;
+}
