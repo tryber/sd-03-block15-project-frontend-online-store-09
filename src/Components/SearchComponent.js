@@ -3,6 +3,7 @@ import SearchBox from './SearchBox';
 import Category from './Category';
 import './MainPage.css';
 import ProductList from './ProductList';
+import ShoppingCartButton from '../Components/ShoppingCartButton';
 import * as Api from '../services/api';
 
 class SearchComponent extends Component {

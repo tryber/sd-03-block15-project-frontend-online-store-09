@@ -14,12 +14,6 @@ class ShoppingCartButton extends React.Component {
             width="50px"
           />
         </Link>
-        <p
-          style={{ width: '100px', textAlign: 'center' }}
-          data-testid="shopping-cart-empty-message"
-        >
-          Seu carrinho está vazio
-        </p>
       </div>
     );
   }

@@ -2,10 +2,27 @@ import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
 
 export class Product extends Component {
-  addToLocalStorage() {
-    const storageJson = JSON.stringify(this.props.product);
-    localStorage.setItem(`${this.props.product.id}`, storageJson);
+  constructor(props) {
+    super(props);
+    this.addToCart = this.addToCart.bind(this);
   }
+  addToCart() {
+    const { product } = this.props;
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (cartItems === null) {
+      product.quantity = 1;
+      return localStorage.setItem('cartItems', JSON.stringify([{ ...product }]));
+    }
+    const itemRepetido = cartItems.find((item) => item.id === product.id);
+    if (itemRepetido) {
+      const indexOfItemInCart = cartItems.indexOf(itemRepetido);
+      cartItems[indexOfItemInCart].quantity += 1;
+      return localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+    product.quantity = 1;
+    return localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...product }]));
+  }
+
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     return (
@@ -22,7 +39,7 @@ export class Product extends Component {
           </div>
           <button
             data-testid="product-add-to-cart"
-            onClick={() => this.addToLocalStorage(this.props.product)}
+            onClick={this.addToCart}
           >
             Adicionar ao Carrinho
           </button>
