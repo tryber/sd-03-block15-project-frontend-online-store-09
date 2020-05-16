@@ -18,7 +18,7 @@ export class Product extends Component {
           <div>
             <h5 className="product">{title}</h5>
             <p>R${price}</p>
-            <ListDetails value={{ title, price,thumbnail }} />
+            <ListDetails value={{ title, price, thumbnail }} />
           </div>
           <button
             data-testid="product-add-to-cart"
