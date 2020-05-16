@@ -30,8 +30,9 @@ export class Product extends Component {
             />
           </div>
           <button
-          data-testid="product-add-to-cart"
-          onClick={() => this.addToLocalStorage(this.props.product)}>
+            data-testid="product-add-to-cart"
+            onClick={() => this.addToLocalStorage(this.props.product)}
+          >
             Adicionar ao Carrinho
           </button>
         </div>
