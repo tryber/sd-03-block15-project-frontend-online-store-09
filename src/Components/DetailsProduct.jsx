@@ -15,14 +15,14 @@ class DetailsProduct extends React.Component {
             <li>{title}</li>
             <li>{`Preço: R$ ${price.toFixed(2)}`}</li>
           </ul>
-        <div style={{margin: "10px"  }}>
-          <textarea
-            placeholder="Digite sua avaliação"
-            data-testid="product-detail-evaluation"
-            rows="10"
-            cols="48"
-          />
-        </div>
+          <div style={{ margin: '10px' }}>
+            <textarea
+              placeholder="Digite sua avaliação"
+              data-testid="product-detail-evaluation"
+              rows="10"
+              cols="48"
+            />
+          </div>
         </div>
       </div>
     );

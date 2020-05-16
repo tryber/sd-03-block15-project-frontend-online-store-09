@@ -40,7 +40,7 @@ class SearchComponent extends Component {
       <div>
         <header className="sc-header">
           <div className="sc-header-div">
-            <p data-testid='home-initial-message'>
+            <p data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>
             <SearchBox

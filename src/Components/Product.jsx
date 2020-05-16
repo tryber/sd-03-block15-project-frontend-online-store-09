@@ -28,7 +28,7 @@ export class Product extends Component {
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     return (
-      <div className='product'>
+      <div className="product">
         <div data-testid="product">
           <img
             src={thumbnail}
