@@ -5,7 +5,7 @@ import './MainPage.css';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
 import ShoppingCartButton from './ShoppingCartButton';
-import './SearchComponent.css'
+import './SearchComponent.css';
 
 class SearchComponent extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class SearchComponent extends Component {
     const { searchText, selectedCategory } = this.state;
     Api.getProductsFromCategoryAndQuery(
       selectedCategory,
-      searchText
+      searchText,
     ).then((products) => this.setState({ products }));
   }
 
@@ -40,7 +40,7 @@ class SearchComponent extends Component {
       <div>
         <header className="sc-header">
           <div className="sc-header-div">
-            <p style={{}} data-testid='home-initial-message'>
+            <p data-testid='home-initial-message'>
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>
             <SearchBox

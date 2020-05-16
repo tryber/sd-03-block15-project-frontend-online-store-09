@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
-import './ProductList.css'
+import './ProductList.css';
 
 export class Product extends Component {
   constructor(props) {
@@ -34,9 +34,9 @@ export class Product extends Component {
             src={thumbnail}
             alt={`Foto de ${title}`}
           />
-            <h5>{title}</h5>
-            <p>R${price}</p>
-            <ListDetails value={{ title, price, thumbnail }} />
+          <h5>{title}</h5>
+          <p>R${price}</p>
+          <ListDetails value={{ title, price, thumbnail }} />
           <button
             data-testid="product-add-to-cart"
             onClick={this.addToCart}
@@ -44,7 +44,7 @@ export class Product extends Component {
             Adicionar ao Carrinho
           </button>
         </div>
-        </div>
+      </div>
     );
   }
 }
