@@ -9,11 +9,17 @@ class ShoppingCartButton extends React.Component {
         <Link to="/cart">
           <img
             src={icon}
-            style={{ marginLeft: '20px' }}
+            style={{ marginLeft: '18px' }}
             alt="shopping cart icon"
-            width="50px"
+            width="30px"
           />
         </Link>
+        <p
+          style={{ width: '70px', textAlign: 'center' }}
+          data-testid="shopping-cart-empty-message"
+        >
+          Seu carrinho está vazio
+        </p>
       </div>
     );
   }

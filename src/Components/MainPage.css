@@ -5,9 +5,5 @@
 }
 
 .div-MainPage {
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  margin: 5px;
   padding: 10px 10px 5px;
 }
