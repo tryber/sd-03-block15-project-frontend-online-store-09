@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
-// import {Link} from 'react-router-dom'
 
 export class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ids: [],
-    }
-  }
-  addToLocalStorage(product) {
-    const storageJson = JSON.stringify(product);
-    localStorage.setItem(`${product.id}`, storageJson);
+  addToLocalStorage() {
+    const storageJson = JSON.stringify(this.props.product);
+    localStorage.setItem(`${this.props.product.id}`, storageJson);
   }
   render() {
     const { product: { title, price, thumbnail } } = this.props;
@@ -36,8 +29,10 @@ export class Product extends Component {
               }}
             />
           </div>
-          <button data-testid="product-add-to-cart" onClick={() => this.addToLocalStorage(this.props.product)}>
-            Add
+          <button
+          data-testid="product-add-to-cart"
+          onClick={() => this.addToLocalStorage(this.props.product)}>
+            Adicionar ao Carrinho
           </button>
         </div>
       </div>
