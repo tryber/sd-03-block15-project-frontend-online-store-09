@@ -18,6 +18,7 @@ class SearchComponent extends Component {
       products: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -34,6 +35,13 @@ class SearchComponent extends Component {
     ).then((products) => this.setState({ products }));
   }
 
+  handleChange(event) {
+    const { value } = event.target;
+    this.setState({
+      searchText: value,
+    })
+  }
+
   render() {
     const { searchText, products, category, selectedCategory } = this.state;
     return (
@@ -46,9 +54,7 @@ class SearchComponent extends Component {
             <SearchBox
               handleClick={() => this.searchProducts}
               searchText={searchText}
-              handleChange={(event) =>
-                this.setState({ searchText: event.target.value })
-              }
+              handleChange={this.handleChange}
             />
           </div>
           <ShoppingCartButton />

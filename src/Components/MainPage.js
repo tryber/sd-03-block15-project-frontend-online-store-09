@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchComponent from '../Components/SearchComponent';
+import SearchComponent from './SearchComponent';
 import '../Components/MainPage.css';
 
 export class MainPage extends Component {

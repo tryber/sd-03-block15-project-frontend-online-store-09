@@ -8,7 +8,7 @@ export class ProductList extends Component {
 
     if (products.results) {
       if (products.results.length === 0) {
-        return <p>Nenhum Produto foi encontrado</p>;
+        return(<h3 style={{ textAlign: "center"}}>Nenhum Produto foi encontrado</h3>);
       }
       return (
         <div className="display-products">
