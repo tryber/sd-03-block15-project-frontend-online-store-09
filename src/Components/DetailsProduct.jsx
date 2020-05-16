@@ -1,7 +1,7 @@
 import React from 'react';
 import './DetailsProduct.css';
 
-class test extends React.Component {
+class DetailsProduct extends React.Component {
   render() {
     const { title, price, thumbnail } = this.props.location.state.value;
     return (
@@ -23,4 +23,4 @@ class test extends React.Component {
     );
   }
 }
-export default test;
+export default DetailsProduct;

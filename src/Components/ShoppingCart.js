@@ -6,6 +6,7 @@ class ShoppingCart extends React.Component {
     this.state = {
       products: [],
     }
+    this.shoppingCartProducts = this.shoppingCartProducts.bind(this);
   }
   componentDidMount() {
     const products = localStorage;
@@ -16,21 +17,25 @@ class ShoppingCart extends React.Component {
       listProducts.push(JSON.parse(jsonProduct));
     }
     this.setState({products: listProducts});
+    this.shoppingCartProducts = this.shoppingCartProducts.bind(this);
+  }
+
+  shoppingCartProducts() {
+    const { products } = this.state;
+    return products.map(({ title, price, thumbnail, id }) => (
+      <li data-testid="shopping-cart-product-name" key={id}>
+        <h1>{title}</h1>
+        <img alt={`Imagem de um ${title}`} src={thumbnail}/>
+        <p>{price}</p>
+        <p data-testid="shopping-cart-product-quantity">1</p>
+      </li>
+    ))
   }
   render() {
-    const { products } = this.state;
-    if(products.length === 0) return <p>Seu carrinho está vazio</p>;
     return (
-      <div>
-        {products.map(({ title, price, thumbnail }) => (
-          <div key={title}>
-            <h1 data-testid="shopping-cart-product-name">{title}</h1>
-            <img alt="" src={thumbnail}/>
-            <p>{price}</p>
-            <p data-testid="shopping-cart-product-quantity">1</p>
-          </div>
-        ))}
-      </div>
+      <ul>
+        {this.shoppingCartProducts()}
+      </ul>
     );
   }
 }

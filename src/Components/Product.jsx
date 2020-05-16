@@ -9,21 +9,21 @@ export class Product extends Component {
       ids: [],
     }
   }
-  addToLocalStorage(title, price, thumbnail, id) {
-    const storageJson = JSON.stringify({ title, price, thumbnail });
-    localStorage.setItem(`${id}`, storageJson);
+  addToLocalStorage(product) {
+    const storageJson = JSON.stringify(product);
+    localStorage.setItem(`${product.id}`, storageJson);
   }
   render() {
-    const { product: { title, price, thumbnail, id } } = this.props;
+    const { product: { title, price, thumbnail } } = this.props;
     return (
-      <div className="product">
+      <div>
         <div style={{ width: '18rem' }} data-testid="product">
           <img
             src={thumbnail}
-            alt={`${title} thumbnail`}
+            alt={`Foto de ${title}`}
           />
           <div>
-            <h5>{title}</h5>
+            <h5 className="product">{title}</h5>
             <p>
               R$
               {price}
@@ -36,7 +36,7 @@ export class Product extends Component {
               }}
             />
           </div>
-          <button data-testid="product-add-to-cart" onClick={() => this.addToLocalStorage(title, price, thumbnail, id)}>
+          <button data-testid="product-add-to-cart" onClick={() => this.addToLocalStorage(this.props.product)}>
             Add
           </button>
         </div>
