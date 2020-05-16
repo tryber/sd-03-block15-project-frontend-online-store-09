@@ -3,9 +3,7 @@ import React from 'react';
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      products: [],
-    }
+    this.state = { products: [] };
     this.shoppingCartProducts = this.shoppingCartProducts.bind(this);
     this.setStateNow = this.setStateNow.bind(this);
   }
