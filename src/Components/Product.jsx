@@ -1,49 +1,50 @@
 import React, { Component } from 'react';
 import ListDetails from './LIstDetails';
+import './ProductList.css'
 
 export class Product extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ids: [],
-    };
+    this.addToCart = this.addToCart.bind(this);
   }
-  addToLocalStorage(title, price, thumbnail, id) {
-    const storageJson = JSON.stringify({ title, price, thumbnail });
-    localStorage.setItem(`${id}`, storageJson);
+
+  addToCart() {
+    const { product } = this.props;
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (cartItems === null) {
+      product.quantity = 1;
+      return localStorage.setItem('cartItems', JSON.stringify([{ ...product }]));
+    }
+    const itemRepetido = cartItems.find((item) => item.id === product.id);
+    if (itemRepetido) {
+      const indexOfItemInCart = cartItems.indexOf(itemRepetido);
+      cartItems[indexOfItemInCart].quantity += 1;
+      return localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+    product.quantity = 1;
+    return localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...product }]));
   }
+
   render() {
-    const {
-      product: { title, price, thumbnail, id },
-    } = this.props;
+    const { product: { title, price, thumbnail } } = this.props;
     return (
       <div className='product'>
-        <div style={{ width: '18rem' }} data-testid='product'>
-          <img src={thumbnail} alt={`${title} thumbnail`} />
-          <h5>{title}</h5>
-          <h3>
-            R$
-            {price}
-          </h3>
-          <div>
-            <ListDetails
-              value={{
-                title,
-                price,
-                thumbnail,
-              }}
-            />
-            <button
-              data-testid='product-add-to-cart'
-              onClick={() =>
-                this.addToLocalStorage(title, price, thumbnail, id)
-              }
-            >
-              Add
-            </button>
-          </div>
+        <div data-testid="product">
+          <img
+            src={thumbnail}
+            alt={`Foto de ${title}`}
+          />
+            <h5>{title}</h5>
+            <p>R${price}</p>
+            <ListDetails value={{ title, price, thumbnail }} />
+          <button
+            data-testid="product-add-to-cart"
+            onClick={this.addToCart}
+          >
+            Adicionar ao Carrinho
+          </button>
         </div>
-      </div>
+        </div>
     );
   }
 }

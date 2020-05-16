@@ -1,36 +1,16 @@
 import React from 'react';
+import CartList from './CardList';
 
 class ShoppingCart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-    }
-  }
-  componentDidMount() {
-    const products = localStorage;
-    const listProducts = [];
-    for (let i = 0; i < products.length; i += 1) {
-      let key = products.key(i);
-      let jsonProduct = window.localStorage.getItem(key);
-      listProducts.push(JSON.parse(jsonProduct));
-    }
-    this.setState({products: listProducts});
-  }
+
   render() {
-    const {products} = this.state;
-    const {quantity} = this.props;
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
-        {products.map(({ title, price, thumbnail }) => (
-          <div key={title}>
-            <p data-testid="shopping-cart-product-name">{title}</p>
-            <img alt={title} src={thumbnail}/>
-            <p>{price}</p>
-            <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-          </div>
-        ))}
-      </div>
+      {cartItems === null
+        ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+        : <CartList />}
+    </div>
     );
   }
 }
