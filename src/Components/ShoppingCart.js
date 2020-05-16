@@ -18,15 +18,16 @@ class ShoppingCart extends React.Component {
     this.setState({products: listProducts});
   }
   render() {
-    const { products } = this.state;
-    console.log(products)
+    const {products} = this.state;
+    const {quantity} = this.props;
     return (
       <div>
         {products.map(({ title, price, thumbnail }) => (
           <div key={title}>
-            <h1 data-testid="shopping-cart-product-name">{title}</h1>
-            <img src={thumbnail}/>
+            <p data-testid="shopping-cart-product-name">{title}</p>
+            <img alt={title} src={thumbnail}/>
             <p>{price}</p>
+            <p data-testid="shopping-cart-product-quantity">{quantity}</p>
           </div>
         ))}
       </div>

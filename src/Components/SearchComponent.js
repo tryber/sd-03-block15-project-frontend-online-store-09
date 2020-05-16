@@ -4,6 +4,8 @@ import Category from './Category';
 import './MainPage.css';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
+import ShoppingCartButton from './ShoppingCartButton';
+import './SearchComponent.css'
 
 class SearchComponent extends Component {
   constructor(props) {
@@ -14,7 +16,6 @@ class SearchComponent extends Component {
       selectedCategory: '',
       searchText: '',
       products: [],
-      cartItems: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
   }
@@ -29,41 +30,17 @@ class SearchComponent extends Component {
     const { searchText, selectedCategory } = this.state;
     Api.getProductsFromCategoryAndQuery(
       selectedCategory,
-      searchText,
+      searchText
     ).then((products) => this.setState({ products }));
-  }
-
-  addToCart(id, title, price) {
-    const {cartItems} = this.state;
-    const itemIndex = cartItems.findIndex((item) => item.id === id)
-    if(itemIndex !== -1) {
-      const updateCart = cartItems;
-      updateCart[itemIndex].quantity += 1;
-      this.setState({cartItems: updateCart})
-    } else {
-        this.setState({
-        cartItems: [...cartItems, {title, id, price, quantity: 1}]
-      })
-    }
   }
 
   render() {
     const { searchText, products, category, selectedCategory } = this.state;
     return (
       <div>
-        <div style={{ display: 'flex' }}>
-          <div>
-            <Category
-              selectedCategory={selectedCategory}
-              categories={category}
-              onChangeCategory={(e) => {
-                this.setState({ selectedCategory: e.target.value });
-                setTimeout(() => this.searchProducts(), 500);
-              }}
-            />
-          </div>
-          <div>
-            <p data-testid="home-initial-message">
+        <header className="sc-header">
+          <div className="sc-header-div">
+            <p style={{}} data-testid='home-initial-message'>
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>
             <SearchBox
@@ -73,8 +50,21 @@ class SearchComponent extends Component {
                 this.setState({ searchText: event.target.value })
               }
             />
-            <ProductList products={products} />
           </div>
+          <ShoppingCartButton />
+        </header>
+        <div>
+          <nav className="sc-nav">
+            <Category
+              selectedCategory={selectedCategory}
+              categories={category}
+              onChangeCategory={(e) => {
+                this.setState({ selectedCategory: e.target.value });
+                setTimeout(() => this.searchProducts(), 500);
+              }}
+            />
+          </nav>
+          <ProductList products={products} />
         </div>
       </div>
     );

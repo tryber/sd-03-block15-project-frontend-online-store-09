@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import ListDetails from './LIstDetails';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import ListDetails from "./LIstDetails";
 // import {Link} from 'react-router-dom'
 
 export class Product extends Component {
@@ -8,27 +7,26 @@ export class Product extends Component {
     super(props);
     this.state = {
       ids: [],
-    }
+    };
   }
   addToLocalStorage(title, price, thumbnail, id) {
     const storageJson = JSON.stringify({ title, price, thumbnail });
     localStorage.setItem(`${id}`, storageJson);
   }
   render() {
-    const { product: { title, price, thumbnail, id } } = this.props;
+    const {
+      product: { title, price, thumbnail, id },
+    } = this.props;
     return (
       <div className="product">
-        <div style={{ width: '18rem' }} data-testid="product">
-          <img
-            src={thumbnail}
-            alt={`${title} thumbnail`}
-          />
+        <div style={{ width: "18rem" }} data-testid="product">
+          <img src={thumbnail} alt={`${title} thumbnail`} />
+          <h5>{title}</h5>
+          <h3>
+            R$
+            {price}
+          </h3>
           <div>
-            <h5>{title}</h5>
-            <p>
-              R$
-              {price}
-            </p>
             <ListDetails
               value={{
                 title,
@@ -36,10 +34,15 @@ export class Product extends Component {
                 thumbnail,
               }}
             />
+            <button
+              data-testid="product-add-to-cart"
+              onClick={() =>
+                this.addToLocalStorage(title, price, thumbnail, id)
+              }
+            >
+              Add
+            </button>
           </div>
-          <button data-testid="product-add-to-cart" onClick={() => this.addToLocalStorage(title, price, thumbnail, id)}>
-            Add
-          </button>
         </div>
       </div>
     );

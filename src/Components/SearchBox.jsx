@@ -12,8 +12,10 @@ export class SearchBox extends Component {
             className="inputArea"
             value={searchText}
             onChange={handleChange}
+            placeholder="Buscar produtos,marcas e muito mais... "
           />
           <button
+            className="sb-btn"
             type="submit"
             data-testid="query-button"
             onClick={handleClick()}

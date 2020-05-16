@@ -1,0 +1,28 @@
+.sc-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff159;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.sc-header-div {
+  width: 100%;
+  text-align: center;
+}
+
+.sc-nav {
+  float: left;
+  border: none;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 5px
+}
+
+p {
+  font-size: 10px;
+}

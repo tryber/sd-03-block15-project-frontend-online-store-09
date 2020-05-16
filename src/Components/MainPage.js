@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ShoppingCartButton from './ShoppingCartButton';
 import SearchComponent from '../Components/SearchComponent';
 import '../Components/MainPage.css';
 
@@ -9,7 +8,6 @@ export class MainPage extends Component {
       <div>
         <div className="div-MainPage">
           <SearchComponent />
-          <ShoppingCartButton />
         </div>
       </div>
     );
