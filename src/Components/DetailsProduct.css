@@ -1,5 +1,5 @@
 .box-product {
-  background-color: #fff;
+  background-color: white;
   border: none;
   border-radius: 4px;
   margin: 10px;
@@ -7,7 +7,7 @@
 }
 
 .details {
-  background-color: #fff;
+  background-color: white;
   border: double;
   margin: 20px;
   text-align: left;

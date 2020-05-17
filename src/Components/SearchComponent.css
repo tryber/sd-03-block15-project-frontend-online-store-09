@@ -1,26 +1,26 @@
 .sc-header {
+  background-color: #fff159;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #fff159;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
+  padding: 5px;
 }
 
 .sc-header-div {
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
 
 .sc-nav {
-  float: left;
+  background-color: white;
   border: none;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
-  background-color: #fff;
   border-radius: 4px;
-  padding: 5px
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  float: left;
+  padding: 5px;
 }
 
 p {

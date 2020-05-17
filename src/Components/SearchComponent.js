@@ -5,7 +5,7 @@ import './MainPage.css';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
 import ShoppingCartButton from './ShoppingCartButton';
-import './SearchComponent.css'
+import './SearchComponent.css';
 
 class SearchComponent extends Component {
   constructor(props) {
@@ -30,29 +30,32 @@ class SearchComponent extends Component {
     const { searchText, selectedCategory } = this.state;
     Api.getProductsFromCategoryAndQuery(
       selectedCategory,
-      searchText
+      searchText,
     ).then((products) => this.setState({ products }));
   }
-
+  renderHeader() {
+    const { searchText } = this.state;
+    return <header className="sc-header">
+    <div className="sc-header-div">
+      <p style={{}} data-testid="home-initial-message">
+        Digite algum termo de pesquisa ou escolha uma categoria.
+      </p>
+      <SearchBox
+        handleClick={() => this.searchProducts}
+        searchText={searchText}
+        handleChange={(event) =>
+          this.setState({ searchText: event.target.value })
+        }
+      />
+    </div>
+    <ShoppingCartButton />
+  </header>
+  }
   render() {
-    const { searchText, products, category, selectedCategory } = this.state;
+    const { products, category, selectedCategory } = this.state;
     return (
       <div>
-        <header className="sc-header">
-          <div className="sc-header-div">
-            <p style={{}} data-testid='home-initial-message'>
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
-            <SearchBox
-              handleClick={() => this.searchProducts}
-              searchText={searchText}
-              handleChange={(event) =>
-                this.setState({ searchText: event.target.value })
-              }
-            />
-          </div>
-          <ShoppingCartButton />
-        </header>
+        {this.renderHeader()}
         <div>
           <nav className="sc-nav">
             <Category

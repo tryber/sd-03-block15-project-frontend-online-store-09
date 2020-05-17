@@ -6,7 +6,8 @@ class ListDetails extends React.Component {
   render() {
     return (
       <div>
-        <Link className="detailLinkStyle"
+        <Link
+          className="detailLinkStyle"
           data-testid="product-detail-link"
           to={{
             pathname: '/DetailsProduct',

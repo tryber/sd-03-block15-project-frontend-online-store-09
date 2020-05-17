@@ -7,7 +7,7 @@ class ShoppingCart extends React.Component {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
-      {cartItems === null
+        {cartItems === null
         ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
         : <CartList />}
     </div>
