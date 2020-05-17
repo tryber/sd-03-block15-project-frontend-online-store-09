@@ -1,10 +1,19 @@
 import React from 'react';
 import './DetailsProduct.css';
 import ShoppingCartButton from './ShoppingCartButton';
+import addToCart from '../services/addToCard';
 
 class DetailsProduct extends React.Component {
+  constructor(props) {
+    super(props);
+    this.addToCart1 = this.addToCart1.bind(this);
+  }
+  addToCart1() {
+    const { product } = this.props.location.state.value;
+    addToCart(product);
+  }
   render() {
-    const { location: { state: { value: { title, price, thumbnail } } } } = this.props;
+    const { product: { title, price, thumbnail } } = this.props.location.state.value;
     return (
       <div data-testid="product-detail-name">
         <div style={{ float: 'right', clear: 'both', marginBottom: '10px' }}>
@@ -26,6 +35,9 @@ class DetailsProduct extends React.Component {
               cols="48"
             />
           </div>
+          <button data-testid="product-detail-add-to-cart" onClick={this.addToCart1}>
+            Adicionar ao Carrinho
+          </button>
         </div>
       </div>
     );
