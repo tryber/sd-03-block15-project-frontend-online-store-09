@@ -7,7 +7,7 @@ class Checkout extends React.Component {
     this.state = {
       name: '',
       ok: false,
-    }
+    };
     this.checkout = this.checkout.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
@@ -21,7 +21,7 @@ class Checkout extends React.Component {
     if (!this.state.name.length) {
       return null;
     }
-    return this.setState({ ok: !this.state.ok })
+    return this.setState({ ok: !this.state.ok });
   }
 
   render() {
@@ -35,28 +35,17 @@ class Checkout extends React.Component {
               data-testid="checkout-fullname"
               type="text"
               name="name"
-              onClick={() => this.handleChangeInput()}
+              onChange={this.handleChangeInput}
               required
-              value={this.state.name}
             />
-          </div>
-          <div className="text-box">
             <span>Email&nbsp;</span>
             <input data-testid="checkout-email" type="email" />
-          </div>
-          <div className="text-box">
             <span >CPF&nbsp;</span>
             <input data-testid="checkout-cpf" type="cpf" />
-          </div>
-          <div className="text-box">
             <span>Telefone&nbsp;</span>
             <input data-testid="checkout-phone" type="telefone" />
-          </div>
-          <div className="text-box">
             <span >CEP&nbsp;</span>
             <input data-testid="checkout-cep" type="cep" />
-          </div>
-          <div className="text-box">
             <span >ENDEREÇO&nbsp;</span>
             <input data-testid="checkout-address" name="endereco" />
             <button
@@ -65,10 +54,10 @@ class Checkout extends React.Component {
             >
               Finalizar
           </button>
+            {this.state.ok && <Finish />}
           </div>
-          {this.state.ok && <Finish />}
         </form>
-      </div>
+      </div >
     );
   }
 }

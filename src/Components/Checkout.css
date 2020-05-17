@@ -2,7 +2,7 @@
   background: green;
   border: 0;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: white;
   cursor: pointer;
   float: right;
   font-size: 1.5em;
@@ -19,5 +19,7 @@
 }
 
 .text-box {
+  display: flex;
+  flex-direction: column;
   margin: 10px;
 }
