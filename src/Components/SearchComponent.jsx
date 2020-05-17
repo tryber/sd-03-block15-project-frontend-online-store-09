@@ -58,7 +58,7 @@ class SearchComponent extends Component {
           <SearchBox
             handleClick={() => this.searchProducts}
             searchText={searchText}
-            handleChange={(event) => this.setState({ searchText: event.target.value })}
+            handleChange={this.handleChangeText}
           />
         </div>
         <ShoppingCartButton />

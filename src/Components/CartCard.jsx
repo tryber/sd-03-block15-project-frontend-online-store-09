@@ -28,7 +28,7 @@ class CartCard extends Component {
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
         <img src={thumbnail} alt={title} />
         <p data-testid="shopping-cart-product-quantity">{`Quantidade: ${quantity}`}</p>
-        <p>{`Preço: R$ ${price * quantity}`}</p>
+        <p>{`Preço: R$ ${(price * quantity).toFixed(2)}`}</p>
         <div data-testid="product-detail-add-to-cart">
           <button
             type="button"
