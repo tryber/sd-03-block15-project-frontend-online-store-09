@@ -48,12 +48,9 @@ class Checkout extends React.Component {
             <input data-testid="checkout-cep" type="cep" />
             <span >ENDEREÇO&nbsp;</span>
             <input data-testid="checkout-address" name="endereco" />
-            <button
-              className="button"
-              onClick={() => this.checkout()}
-            >
+            <button className="button" onClick={() => this.checkout()}>
               Finalizar
-          </button>
+            </button>
             {this.state.ok && <Finish />}
           </div>
         </form>
