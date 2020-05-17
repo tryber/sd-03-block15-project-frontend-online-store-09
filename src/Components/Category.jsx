@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Category extends React.Component {
-
   render() {
     const { onChangeCategory, categories, selectedCategory } = this.props;
     return categories.map(({ id, name }) => (
