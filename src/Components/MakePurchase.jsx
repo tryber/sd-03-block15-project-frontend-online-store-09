@@ -1,6 +1,6 @@
 import React from 'react';
 import Checkout from './Checkout';
-import './Checkout.css'
+import './Checkout.css';
 
 
 class MakePurchase extends React.Component {
@@ -8,11 +8,12 @@ class MakePurchase extends React.Component {
     super(props);
     this.state = {
       finish: false,
-      frase: ["Realizar compra", "Deixar para Depois"],
-    }
+      frase: ['Realizar compra', 'Deixar para Depois'],
+    };
   }
+
   finish() {
-    this.setState({ finish: !this.state.finish })
+    this.setState({ finish: !this.state.finish });
   }
   render() {
     return (
@@ -20,7 +21,9 @@ class MakePurchase extends React.Component {
         <button
           className="button"
           data-testid="checkout-products"
-          onClick={() => this.finish()}>{this.state.finish ? this.state.frase[1] : this.state.frase[0]}
+          onClick={() => this.finish()}
+        >
+          {this.state.finish ? this.state.frase[1] : this.state.frase[0]}
         </button>
         {this.state.finish && <Checkout />}
       </div>
