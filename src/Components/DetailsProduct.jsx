@@ -10,8 +10,7 @@ class DetailsProduct extends React.Component {
   }
   addToCart1() {
     const { product } = this.props.location.state.value;
-    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-   addToCart(product, cartItems);
+    addToCart(product);
   }
   render() {
     const { product: { title, price, thumbnail } } = this.props.location.state.value;

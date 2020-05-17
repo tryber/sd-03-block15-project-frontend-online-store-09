@@ -11,8 +11,7 @@ export class Product extends Component {
 
   addToCart1() {
     const { product } = this.props;
-    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    addToCart(product, cartItems);
+    addToCart(product);
   }
 
   render() {
@@ -25,10 +24,10 @@ export class Product extends Component {
             src={thumbnail}
             alt={`Foto de ${title}`}
           />
-          <div className="line"></div>
+          <div className="line" />
           <h5>{title}</h5>
           <p className="priceStyle">R$ {price}</p>
-            <ListDetails value={this.props} />
+          <ListDetails value={this.props} />
           <button className="addToCart" data-testid="product-add-to-cart" onClick={this.addToCart1}>
             Adicionar ao Carrinho
           </button>
