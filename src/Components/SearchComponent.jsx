@@ -18,6 +18,8 @@ class SearchComponent extends Component {
       products: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
+    this.handleChangeCategory = this.handleChangeCategory.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,18 @@ class SearchComponent extends Component {
       searchText,
     ).then((products) => this.setState({ products }));
   }
+
+  handleChangeText(event) {
+    const { value } = event.target;
+    this.setState({ searchText: value });
+  }
+
+  handleChangeCategory(event) {
+    const { value } = event.target;
+    this.setState({ selectedCategory: value });
+    setTimeout(() => this.searchProducts(), 500);
+  }
+
   renderHeader() {
     const { searchText } = this.state;
     return (
@@ -44,15 +58,14 @@ class SearchComponent extends Component {
           <SearchBox
             handleClick={() => this.searchProducts}
             searchText={searchText}
-            handleChange={(event) =>
-              this.setState({ searchText: event.target.value })
-            }
+            handleChange={(event) => this.setState({ searchText: event.target.value })}
           />
         </div>
         <ShoppingCartButton />
       </header>
     );
   }
+
   render() {
     const { products, category, selectedCategory } = this.state;
     return (
@@ -63,10 +76,7 @@ class SearchComponent extends Component {
             <Category
               selectedCategory={selectedCategory}
               categories={category}
-              onChangeCategory={(e) => {
-                this.setState({ selectedCategory: e.target.value });
-                setTimeout(() => this.searchProducts(), 500);
-              }}
+              onChangeCategory={this.handleChangeCategory}
             />
           </nav>
           <ProductList products={products} />
