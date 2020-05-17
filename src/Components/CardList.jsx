@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CartCard from './CartCard';
+import MakePurchase from './MakePurchase';
 
 class CartList extends Component {
   render() {
@@ -9,6 +10,7 @@ class CartList extends Component {
         {cartItems.map((item) => (
           <CartCard key={item.id} product={item} />
         ))}
+        <MakePurchase />
       </div>
     );
   }
