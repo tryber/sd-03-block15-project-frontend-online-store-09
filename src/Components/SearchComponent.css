@@ -1,7 +1,7 @@
 .sc-header {
   background-color: #fff159;
   border-radius: 5px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

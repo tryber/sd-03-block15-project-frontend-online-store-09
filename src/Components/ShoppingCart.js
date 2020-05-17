@@ -10,7 +10,7 @@ class ShoppingCart extends React.Component {
         {cartItems === null
         ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
         : <CartList />}
-    </div>
+      </div>
     );
   }
 }
