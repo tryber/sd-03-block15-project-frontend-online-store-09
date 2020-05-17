@@ -25,19 +25,23 @@ export class Product extends Component {
     return localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...product }]));
   }
 
+
+
+
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     return (
       <div className="product">
         <div data-testid="product">
-          <img
+          <img className="product-image"
             src={thumbnail}
             alt={`Foto de ${title}`}
           />
-          <h5>{title}</h5>
-          <p>R${price}</p>
-          <ListDetails value={{ title, price, thumbnail }} />
-          <button
+        <div className="line"></div>
+            <h5>{title}</h5>
+            <p className="priceStyle">R$ {price}</p>
+            <ListDetails value={{ title, price, thumbnail }} />
+          <button className="addToCartStyle"
             data-testid="product-add-to-cart"
             onClick={this.addToCart}
           >

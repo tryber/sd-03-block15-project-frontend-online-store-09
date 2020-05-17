@@ -1,8 +1,7 @@
 import React from 'react';
-import CartList from './CardList';
+import CartList from './CartList';
 
 class ShoppingCart extends React.Component {
-
   render() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (

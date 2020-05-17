@@ -1,12 +1,13 @@
 import React from 'react';
 import './DetailsProduct.css';
-// import { Link } from 'react-router-dom';
+import ShoppingCartButton from '../Components/ShoppingCartButton';
 
 class DetailsProduct extends React.Component {
   render() {
     const { title, price, thumbnail } = this.props.location.state.value;
     return (
       <div data-testid="product-detail-name">
+        <ShoppingCartButton />
         <div className="box-product">
           <h3>{title}</h3>
           <img src={thumbnail} alt={title} width="50%" />
