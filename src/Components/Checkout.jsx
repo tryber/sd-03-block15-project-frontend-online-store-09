@@ -36,7 +36,6 @@ class Checkout extends React.Component {
               type="text"
               name="name"
               onChange={this.handleChangeInput}
-              required
             />
             <span>Email&nbsp;</span>
             <input data-testid="checkout-email" type="email" />
