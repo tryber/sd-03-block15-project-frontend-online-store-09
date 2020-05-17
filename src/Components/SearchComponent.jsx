@@ -18,7 +18,7 @@ class SearchComponent extends Component {
       products: [],
     };
     this.searchProducts = this.searchProducts.bind(this);
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -37,9 +37,7 @@ class SearchComponent extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState({
-      searchText: value,
-    })
+    this.setState({ searchText: value });
   }
 
   render() {
