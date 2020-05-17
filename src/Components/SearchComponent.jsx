@@ -47,23 +47,30 @@ class SearchComponent extends Component {
     setTimeout(() => this.searchProducts(), 500);
   }
 
+  renderHeader() {
+    const { searchText } = this.state;
+    return (
+      <header className="sc-header">
+        <div className="sc-header-div">
+          <p style={{}} data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+          <SearchBox
+            handleClick={() => this.searchProducts}
+            searchText={searchText}
+            handleChange={(event) => this.setState({ searchText: event.target.value })}
+          />
+        </div>
+        <ShoppingCartButton />
+      </header>
+    );
+  }
+
   render() {
-    const { searchText, products, category, selectedCategory } = this.state;
+    const { products, category, selectedCategory } = this.state;
     return (
       <div>
-        <header className="sc-header">
-          <div className="sc-header-div">
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
-            <SearchBox
-              handleClick={() => this.searchProducts}
-              searchText={searchText}
-              handleChange={this.handleChangeText}
-            />
-          </div>
-          <ShoppingCartButton />
-        </header>
+        {this.renderHeader()}
         <div>
           <nav className="sc-nav">
             <Category

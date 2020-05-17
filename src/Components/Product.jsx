@@ -34,28 +34,24 @@ export class Product extends Component {
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     return (
-      <div className="product">
-        <div data-testid="product">
-          <img
-            className="product-image"
-            src={thumbnail}
-            alt={`Foto de ${title}`}
-          />
-          <div className="line" />
-          <h5>{title}</h5>
-          <p className="priceStyle">
-            {` R$ ${price}`}
-          </p>
-          <ListDetails value={{ title, price, thumbnail }} />
-          <button
-            type="button"
-            className="addToCartStyle"
-            data-testid="product-add-to-cart"
-            onClick={this.addToCart}
-          >
-            Adicionar ao Carrinho
-          </button>
-        </div>
+      <div className="product" data-testid="product">
+        <img
+          className="product-image"
+          src={thumbnail}
+          alt={`Foto de ${title}`}
+        />
+        <div className="line" />
+        <h5>{title}</h5>
+        <p className="priceStyle">{`R$ ${price}`}</p>
+        <ListDetails value={{ title, price, thumbnail }} />
+        <button
+          type="button"
+          className="addToCartStyle"
+          data-testid="product-add-to-cart"
+          onClick={this.addToCart}
+        >
+          Adicionar ao Carrinho
+        </button>
       </div>
     );
   }
