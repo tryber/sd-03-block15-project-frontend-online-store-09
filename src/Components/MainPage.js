@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchComponent from '../Components/SearchComponent';
-import '../Components/MainPage.css';
+import SearchComponent from './SearchComponent';
+import './MainPage.css';
 
 export class MainPage extends Component {
   render() {
