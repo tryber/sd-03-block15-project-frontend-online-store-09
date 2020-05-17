@@ -4,6 +4,8 @@ import Category from './Category';
 import './MainPage.css';
 import ProductList from './ProductList';
 import * as Api from '../services/api';
+import ShoppingCartButton from './ShoppingCartButton';
+import './SearchComponent.css';
 
 class SearchComponent extends Component {
   constructor(props) {
@@ -31,13 +33,33 @@ class SearchComponent extends Component {
       searchText,
     ).then((products) => this.setState({ products }));
   }
-
+  renderHeader() {
+    const { searchText } = this.state;
+    return (
+      <header className="sc-header">
+        <div className="sc-header-div">
+          <p style={{}} data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+          <SearchBox
+            handleClick={() => this.searchProducts}
+            searchText={searchText}
+            handleChange={(event) =>
+              this.setState({ searchText: event.target.value })
+            }
+          />
+        </div>
+        <ShoppingCartButton />
+      </header>
+    );
+  }
   render() {
-    const { searchText, products, category, selectedCategory } = this.state;
+    const { products, category, selectedCategory } = this.state;
     return (
       <div>
-        <div style={{ display: 'flex' }}>
-          <div>
+        {this.renderHeader()}
+        <div>
+          <nav className="sc-nav">
             <Category
               selectedCategory={selectedCategory}
               categories={category}
@@ -46,20 +68,8 @@ class SearchComponent extends Component {
                 setTimeout(() => this.searchProducts(), 500);
               }}
             />
-          </div>
-          <div>
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
-            <SearchBox
-              handleClick={() => this.searchProducts}
-              searchText={searchText}
-              handleChange={(event) =>
-                this.setState({ searchText: event.target.value })
-              }
-            />
-            <ProductList products={products} />
-          </div>
+          </nav>
+          <ProductList products={products} />
         </div>
       </div>
     );

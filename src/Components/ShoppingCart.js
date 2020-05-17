@@ -1,10 +1,15 @@
 import React from 'react';
+import CartList from './CardList';
 
 class ShoppingCart extends React.Component {
+
   render() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
-        <p>Work in progress</p>
+        {cartItems === null
+        ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+        : <CartList />}
       </div>
     );
   }

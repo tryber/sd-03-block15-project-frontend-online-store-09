@@ -5,21 +5,15 @@ import icon from './icon.svg';
 class ShoppingCartButton extends React.Component {
   render() {
     return (
-      <div data-testid="shopping-cart-button">
-        <Link to="/cart">
+      <div>
+        <Link data-testid="shopping-cart-button"to="/cart">
           <img
             src={icon}
-            style={{ marginLeft: '20px' }}
+            style={{ marginLeft: '18px' }}
             alt="shopping cart icon"
-            width="50px"
+            width="30px"
           />
         </Link>
-        <p
-          style={{ width: '100px', textAlign: 'center' }}
-          data-testid="shopping-cart-empty-message"
-        >
-          Seu carrinho está vazio
-        </p>
       </div>
     );
   }

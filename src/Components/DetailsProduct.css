@@ -1,13 +1,13 @@
 .box-product {
-  background-color: antiquewhite;
-  border: double;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
   margin: 10px;
   text-align: center;
-  width: max-content;
 }
 
 .details {
-  background-color: antiquewhite;
+  background-color: white;
   border: double;
   margin: 20px;
   text-align: left;
