@@ -1,7 +1,8 @@
 import React from 'react';
 import './DetailsProduct.css';
 import ShoppingCartButton from './ShoppingCartButton';
-import * as func from './addToCard';
+import addToCart from './addToCard';
+
 class DetailsProduct extends React.Component {
   constructor(props) {
     super(props);
@@ -10,19 +11,7 @@ class DetailsProduct extends React.Component {
   addToCart1() {
     const { product } = this.props.location.state.value;
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    func.addToCart(product, cartItems);
-    // if (cartItems === null) {
-    //   product.quantity = 1;
-    //   return localStorage.setItem('cartItems', JSON.stringify([{ ...product }]));
-    // }
-    // const itemRepetido = cartItems.find((item) => item.id === product.id);
-    // if (itemRepetido) {
-    //   const indexOfItemInCart = cartItems.indexOf(itemRepetido);
-    //   cartItems[indexOfItemInCart].quantity += 1;
-    //   return localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    // }
-    // product.quantity = 1;
-    // return localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...product }]));
+   addToCart(product, cartItems);
   }
   render() {
     const { product: { title, price, thumbnail } } = this.props.location.state.value;

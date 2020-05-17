@@ -1,4 +1,4 @@
-export const addToCart = (product, cartItems) => {
+export default function addToCart(product, cartItems) {
   if (cartItems === null) {
     product.quantity = 1;
     return localStorage.setItem('cartItems', JSON.stringify([{ ...product }]));
