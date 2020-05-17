@@ -1,7 +1,7 @@
 import React from 'react';
 import './DetailsProduct.css';
 import ShoppingCartButton from './ShoppingCartButton';
-import addToCart from './addToCard';
+import addToCart from '../services/addToCard';
 
 class DetailsProduct extends React.Component {
   constructor(props) {
