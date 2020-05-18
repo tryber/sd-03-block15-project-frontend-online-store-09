@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CartCard from './CartCard';
-import MakePurchase from './MakePurchase';
-import './ProductList.css';
+import MakePurchase from '../Checkout/MakePurchase';
+import '../Product_Components/ProductList.css';
 
 class CartList extends Component {
   render() {

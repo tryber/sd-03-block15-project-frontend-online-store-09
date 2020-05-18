@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ListDetails from './LIstDetails';
-import addToCart from '../services/addToCard';
+import ListDetails from '../List_Details/LIstDetails';
+import addToCart from '../../services/addToCard';
 import './ProductList.css';
 
 export class Product extends Component {

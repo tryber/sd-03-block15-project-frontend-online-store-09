@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import icon from './icon.svg';
+import icon from '../../icon.svg';
 
 class ShoppingCartButton extends React.Component {
   render() {

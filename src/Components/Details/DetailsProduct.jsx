@@ -1,7 +1,7 @@
 import React from 'react';
 import './DetailsProduct.css';
-import ShoppingCartButton from './ShoppingCartButton';
-import addToCart from '../services/addToCard';
+import ShoppingCartButton from '../Cart_Components/Shopping_Cart_Components/ShoppingCartButton';
+import addToCart from '../../services/addToCard';
 
 class DetailsProduct extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class DetailsProduct extends React.Component {
         </div>
         <div className="box-product">
           <h3>{title}</h3>
-          <img src={thumbnail} alt={title} width="50%" />
+          <img className="product-image" src={thumbnail} alt={title} width="50%" />
           <h2>Detalhes</h2>
           <ul>
             <li>{title}</li>

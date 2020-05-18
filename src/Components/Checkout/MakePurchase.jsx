@@ -20,15 +20,19 @@ class MakePurchase extends React.Component {
     const { finish, frase } = this.state;
     return (
       <div>
-        <button
-          type="button"
-          className="button"
-          data-testid="checkout-products"
-          onClick={() => this.finish()}
-        >
-          {finish ? frase[1] : frase[0]}
-        </button>
-        {finish && <Checkout />}
+        <div className="display-form">
+          <button
+            type="button"
+            className="buttonFinish"
+            data-testid="checkout-products"
+            onClick={() => this.finish()}
+          >
+            {finish ? frase[1] : frase[0]}
+          </button>
+        </div>
+        <div>
+          {finish && <Checkout />}
+        </div>
       </div>
     );
   }

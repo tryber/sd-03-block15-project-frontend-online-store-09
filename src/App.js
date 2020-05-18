@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import MainPage from './Components/MainPage';
-import ShoppingCart from './Components/ShoppingCart';
-import DetailsProduct from './Components/DetailsProduct';
+// eslint-disable-next-line import/no-named-as-default
+import MainPage from './Components/MainPage/MainPage';
+import ShoppingCart from './Components/Cart_Components/Shopping_Cart_Components/ShoppingCart';
+import DetailsProduct from './Components/Details/DetailsProduct';
 
 function App() {
   return (

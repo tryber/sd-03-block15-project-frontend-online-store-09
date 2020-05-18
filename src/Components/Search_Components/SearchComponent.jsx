@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+// eslint-disable-next-line import/no-named-as-default
 import SearchBox from './SearchBox';
-import Category from './Category';
-import './MainPage.css';
-import ProductList from './ProductList';
-import * as Api from '../services/api';
-import ShoppingCartButton from './ShoppingCartButton';
+import Category from '../Category/Category';
+import '../MainPage/MainPage.css';
+// eslint-disable-next-line import/no-named-as-default
+import ProductList from '../Product_Components/ProductList';
+import * as Api from '../../services/api';
+import ShoppingCartButton from '../Cart_Components/Shopping_Cart_Components/ShoppingCartButton';
 import './SearchComponent.css';
 
 class SearchComponent extends Component {
