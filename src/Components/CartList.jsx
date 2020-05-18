@@ -8,7 +8,7 @@ class CartList extends Component {
     return (
       <div>
         {cartProducts.map((product) => (
-          <CartCard  key={product.id} product={product}/>
+          <CartCard key={product.id} product={product} />
         ))}
         <MakePurchase />
       </div>

@@ -28,7 +28,11 @@ export class Product extends Component {
           <h5>{title}</h5>
           <p className="priceStyle">R$ {price}</p>
           <ListDetails value={this.props} />
-          <button className="addToCart" data-testid="product-add-to-cart" onClick={this.addToLocalStorage}>
+          <button
+            className="addToCart"
+            data-testid="product-add-to-cart"
+            onClick={this.addToLocalStorage}
+          >
             Adicionar ao Carrinho
           </button>
         </div>
