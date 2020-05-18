@@ -8,12 +8,14 @@ class DetailsProduct extends React.Component {
     super(props);
     this.addToCart1 = this.addToCart1.bind(this);
   }
+
   addToCart1() {
-    const { product } = this.props.location.state.value;
+    const { location: { state: { value: { product } } } } = this.props;
     addToCart(product);
   }
+
   render() {
-    const { product: { title, price, thumbnail } } = this.props.location.state.value;
+    const { location: { state: { value: { product: { title, price, thumbnail } } } } } = this.props;
     return (
       <div data-testid="product-detail-name">
         <div style={{ float: 'right', clear: 'both', marginBottom: '10px' }}>
@@ -35,7 +37,11 @@ class DetailsProduct extends React.Component {
               cols="48"
             />
           </div>
-          <button data-testid="product-detail-add-to-cart" onClick={this.addToCart1}>
+          <button
+            type="button"
+            data-testid="product-detail-add-to-cart"
+            onClick={this.addToCart1}
+          >
             Adicionar ao Carrinho
           </button>
         </div>
@@ -43,4 +49,5 @@ class DetailsProduct extends React.Component {
     );
   }
 }
+
 export default DetailsProduct;
