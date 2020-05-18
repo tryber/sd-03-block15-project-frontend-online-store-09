@@ -33,43 +33,14 @@ class Checkout extends React.Component {
             name="name"
             onChange={this.handleChangeInput}
           />
-          <input
-            className="input"
-            placeholder="Email"
-            data-testid="checkout-email"
-            type="email"
-          />
-          <input
-            className="input"
-            placeholder="CPF"
-            data-testid="checkout-cpf"
-            type="text"
-          />
-          <input
-            className="input"
-            placeholder="Telefone"
-            data-testid="checkout-phone"
-            type="text"
-          />
-          <input
-            className="input"
-            placeholder="CEP"
-            data-testid="checkout-cep"
-            type="text"
-          />
-          <input
-            className="input"
-            placeholder="Endereço"
-            data-testid="checkout-address"
-            type="text"
-          />
+          <input className="input" placeholder="Email" data-testid="checkout-email" type="email" />
+          <input className="input" placeholder="CPF" data-testid="checkout-cpf" type="text" />
+          <input className="input" placeholder="Tel:" data-testid="checkout-phone" type="text" />
+          <input className="input" placeholder="CEP" data-testid="checkout-cep" type="text" />
+          <input className="input" placeholder="End." data-testid="checkout-address" type="text" />
           <input className="input" placeholder="Complemento" type="text" />
           <Link to="/">
-            <button
-              className="button"
-              type="submit"
-              onClick={() => this.showMessage()}
-            >
+            <button className="button" type="submit" onClick={() => this.showMessage()}>
               Finalizar
             </button>
           </Link>
