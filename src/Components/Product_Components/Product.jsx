@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ListDetails from './LIstDetails';
-import addToCart from '../services/addToCard';
+import ListDetails from '../List_Details/LIstDetails';
+import addToCart from '../../services/addToCard';
 import './ProductList.css';
 
 export class Product extends Component {
@@ -26,9 +26,18 @@ export class Product extends Component {
           />
           <div className="line" />
           <h5>{title}</h5>
-          <p className="priceStyle">R$ {price}</p>
+          <p className="priceStyle">
+            R$
+            {' '}
+            {price}
+          </p>
           <ListDetails value={this.props} />
-          <button className="addToCart" data-testid="product-add-to-cart" onClick={this.addToCart1}>
+          <button
+            type="button"
+            className="addToCart"
+            data-testid="product-add-to-cart"
+            onClick={this.addToCart1}
+          >
             Adicionar ao Carrinho
           </button>
         </div>

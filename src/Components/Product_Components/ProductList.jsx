@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// eslint-disable-next-line import/no-named-as-default
 import Product from './Product';
 import './ProductList.css';
 

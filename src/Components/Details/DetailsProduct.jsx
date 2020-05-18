@@ -1,19 +1,33 @@
 import React from 'react';
 import './DetailsProduct.css';
-import ShoppingCartButton from './ShoppingCartButton';
-import addToCart from '../services/addToCard';
+import ShoppingCartButton from '../Cart_Components/Shopping_Cart_Components/ShoppingCartButton';
+import addToCart from '../../services/addToCard';
 
 class DetailsProduct extends React.Component {
   constructor(props) {
     super(props);
     this.addToCart1 = this.addToCart1.bind(this);
   }
+
   addToCart1() {
-    const { product } = this.props.location.state.value;
+    const { location: { state: { value: { product } } } } = this.props;
     addToCart(product);
   }
+
+  renderButton() {
+    return (
+      <button
+        type="button"
+        data-testid="product-detail-add-to-cart"
+        onClick={this.addToCart1}
+      >
+        Adicionar ao Carrinho
+      </button>
+    );
+  }
+
   render() {
-    const { product: { title, price, thumbnail } } = this.props.location.state.value;
+    const { location: { state: { value: { product: { title, price, thumbnail } } } } } = this.props;
     return (
       <div data-testid="product-detail-name">
         <div style={{ float: 'right', clear: 'both', marginBottom: '10px' }}>
@@ -21,7 +35,7 @@ class DetailsProduct extends React.Component {
         </div>
         <div className="box-product">
           <h3>{title}</h3>
-          <img src={thumbnail} alt={title} width="50%" />
+          <img className="product-image" src={thumbnail} alt={title} width="50%" />
           <h2>Detalhes</h2>
           <ul>
             <li>{title}</li>
@@ -35,12 +49,11 @@ class DetailsProduct extends React.Component {
               cols="48"
             />
           </div>
-          <button data-testid="product-detail-add-to-cart" onClick={this.addToCart1}>
-            Adicionar ao Carrinho
-          </button>
+          {this.renderButton()}
         </div>
       </div>
     );
   }
 }
+
 export default DetailsProduct;
