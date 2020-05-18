@@ -4,11 +4,11 @@ import MakePurchase from './MakePurchase';
 
 class CartList extends Component {
   render() {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     return (
       <div>
-        {cartItems.map((item) => (
-          <CartCard key={item.id} product={item} />
+        {cartProducts.map((product) => (
+          <CartCard  key={product.id} product={product}/>
         ))}
         <MakePurchase />
       </div>

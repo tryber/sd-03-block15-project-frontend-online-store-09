@@ -6,9 +6,9 @@ import addToCart from '../services/addToCard';
 class DetailsProduct extends React.Component {
   constructor(props) {
     super(props);
-    this.addToCart1 = this.addToCart1.bind(this);
+    this.addToLocalStorage = this.addToLocalStorage.bind(this);
   }
-  addToCart1() {
+  addToLocalStorage() {
     const { product } = this.props.location.state.value;
     addToCart(product);
   }
@@ -35,7 +35,7 @@ class DetailsProduct extends React.Component {
               cols="48"
             />
           </div>
-          <button data-testid="product-detail-add-to-cart" onClick={this.addToCart1}>
+          <button data-testid="product-detail-add-to-cart" onClick={this.addToLocalStorage}>
             Adicionar ao Carrinho
           </button>
         </div>

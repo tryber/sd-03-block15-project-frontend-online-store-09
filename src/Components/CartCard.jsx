@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CartCard.css';
 
 class CartCard extends Component {
   constructor(props) {
@@ -24,11 +25,11 @@ class CartCard extends Component {
     const { quantity } = this.state;
 
     return (
-      <div>
+      <div className="cartCard">
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
         <img src={thumbnail} alt={title} />
         <p data-testid="shopping-cart-product-quantity">{`Quantidade: ${quantity}`}</p>
-        <p>{`Preço: R$ ${price * quantity}`}</p>
+        <p className="priceBox">{`Preço: R$ ${price * quantity}`}</p>
         <div data-testid="product-detail-add-to-cart">
           <button
             type="button"
