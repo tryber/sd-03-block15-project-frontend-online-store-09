@@ -47,13 +47,13 @@ export class Product extends Component {
         </div>
         <ListDetails value={this.props} />
         <button
-            type="button"
-            className="addToCart"
-            data-testid="product-add-to-cart"
-            onClick={this.addToLocalStorage}
-          >
-            Adicionar ao Carrinho
-          </button>
+          type="button"
+          className="addToCart"
+          data-testid="product-add-to-cart"
+          onClick={this.addToLocalStorage}
+        >
+          Adicionar ao Carrinho
+        </button>
       </div>
     );
   }
