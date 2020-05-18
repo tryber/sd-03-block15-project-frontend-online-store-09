@@ -41,3 +41,18 @@
   border: 1px solid #888a8c;
   padding: 2%;
 }
+
+@keyframes freeShipping {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 85%;
+  }
+}
+
+.freeShipping {
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-name: freeShipping;
+}
