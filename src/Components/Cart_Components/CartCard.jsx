@@ -25,7 +25,7 @@ class CartCard extends Component {
     const { quantity } = this.state;
 
     return (
-      <div className="product">
+      <div className="cartProduct">
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
         <img src={thumbnail} alt={title} />
         <p data-testid="shopping-cart-product-quantity">{`Quantidade: ${quantity}`}</p>
