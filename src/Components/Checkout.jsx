@@ -1,14 +1,12 @@
+/* eslint-disable class-methods-use-this */
 import React from 'react';
-import Finish from './Finish';
+import { Link } from 'react-router-dom';
 
 class Checkout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      ok: false,
-    };
-    this.checkout = this.checkout.bind(this);
+
+    this.showMessage = this.showMessage.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
@@ -17,11 +15,9 @@ class Checkout extends React.Component {
     this.setState({ [name]: value });
   }
 
-  checkout() {
-    if (!this.state.name.length) {
-      return null;
-    }
-    return this.setState({ ok: !this.state.ok });
+  showMessage() {
+    // eslint-disable-next-line no-alert
+    alert('Obrigado pela compra!');
   }
 
   render() {
@@ -39,21 +35,22 @@ class Checkout extends React.Component {
             />
             <span>Email&nbsp;</span>
             <input data-testid="checkout-email" type="email" />
-            <span >CPF&nbsp;</span>
+            <span>CPF&nbsp;</span>
             <input data-testid="checkout-cpf" type="cpf" />
             <span>Telefone&nbsp;</span>
             <input data-testid="checkout-phone" type="telefone" />
-            <span >CEP&nbsp;</span>
+            <span>CEP&nbsp;</span>
             <input data-testid="checkout-cep" type="cep" />
-            <span >ENDEREÇO&nbsp;</span>
+            <span>ENDEREÇO&nbsp;</span>
             <input data-testid="checkout-address" name="endereco" />
-            <button className="button" onClick={() => this.checkout()}>
-              Finalizar
-            </button>
-            {this.state.ok && <Finish />}
+            <Link to="/">
+              <button className="button" type="submit" onClick={() => this.showMessage()}>
+                Finalizar
+              </button>
+            </Link>
           </div>
         </form>
-      </div >
+      </div>
     );
   }
 }

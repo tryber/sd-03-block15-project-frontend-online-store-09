@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ProductList.css';
 
 class CartCard extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class CartCard extends Component {
     const { quantity } = this.state;
 
     return (
-      <div>
+      <div className="product">
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
         <img src={thumbnail} alt={title} />
         <p data-testid="shopping-cart-product-quantity">{`Quantidade: ${quantity}`}</p>
