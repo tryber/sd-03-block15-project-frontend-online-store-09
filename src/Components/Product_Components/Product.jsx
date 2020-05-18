@@ -6,10 +6,10 @@ import './ProductList.css';
 export class Product extends Component {
   constructor(props) {
     super(props);
-    this.addToCart1 = this.addToCart1.bind(this);
+    this.addToLocalStorage = this.addToLocalStorage.bind(this);
   }
 
-  addToCart1() {
+  addToLocalStorage() {
     const { product } = this.props;
     addToCart(product);
   }
@@ -36,7 +36,7 @@ export class Product extends Component {
             type="button"
             className="addToCart"
             data-testid="product-add-to-cart"
-            onClick={this.addToCart1}
+            onClick={this.addToLocalStorage}
           >
             Adicionar ao Carrinho
           </button>
