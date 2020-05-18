@@ -44,8 +44,9 @@ export class Product extends Component {
             {' '}
             {price}
           </p>
-          <ListDetails value={this.props} />
-          <button
+        </div>
+        <ListDetails value={this.props} />
+        <button
             type="button"
             className="addToCart"
             data-testid="product-add-to-cart"
@@ -53,7 +54,6 @@ export class Product extends Component {
           >
             Adicionar ao Carrinho
           </button>
-        </div>
       </div>
     );
   }
