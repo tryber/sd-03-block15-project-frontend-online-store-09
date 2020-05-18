@@ -14,6 +14,18 @@ class DetailsProduct extends React.Component {
     addToCart(product);
   }
 
+  renderButton() {
+    return (
+      <button
+        type="button"
+        data-testid="product-detail-add-to-cart"
+        onClick={this.addToCart1}
+      >
+        Adicionar ao Carrinho
+      </button>
+    );
+  }
+
   render() {
     const { location: { state: { value: { product: { title, price, thumbnail } } } } } = this.props;
     return (
@@ -37,13 +49,7 @@ class DetailsProduct extends React.Component {
               cols="48"
             />
           </div>
-          <button
-            type="button"
-            data-testid="product-detail-add-to-cart"
-            onClick={this.addToCart1}
-          >
-            Adicionar ao Carrinho
-          </button>
+          {this.renderButton()}
         </div>
       </div>
     );

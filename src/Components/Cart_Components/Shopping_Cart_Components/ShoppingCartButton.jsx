@@ -5,7 +5,12 @@ import icon from '../../icon.svg';
 class ShoppingCartButton extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{
+        position: 'relative',
+        top: '15px',
+        right: '20px',
+      }}
+      >
         <Link data-testid="shopping-cart-button" to="/cart">
           <img
             src={icon}
