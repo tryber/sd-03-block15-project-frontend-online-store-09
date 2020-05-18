@@ -43,16 +43,18 @@
 }
 
 @keyframes freeShipping {
+
   from {
     margin-left: 0;
   }
+
   to {
     margin-left: 85%;
   }
 }
 
 .freeShipping {
-  animation-fill-mode: forwards;
   animation-duration: 2s;
+  animation-fill-mode: forwards;
   animation-name: freeShipping;
 }
