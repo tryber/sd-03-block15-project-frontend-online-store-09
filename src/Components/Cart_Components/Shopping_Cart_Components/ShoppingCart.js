@@ -3,10 +3,10 @@ import CartList from '../CartList';
 
 class ShoppingCart extends React.Component {
   render() {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     return (
       <div>
-        {cartItems === null
+        {cartProducts === null
           ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
           : <CartList />}
       </div>

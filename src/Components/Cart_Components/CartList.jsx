@@ -5,12 +5,12 @@ import '../Product_Components/ProductList.css';
 
 class CartList extends Component {
   render() {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     return (
       <div>
         <MakePurchase />
         <div className="display-products">
-          {cartItems.map((item) => (
+          {cartProducts.map((item) => (
             <CartCard key={item.id} product={item} />
           ))}
         </div>

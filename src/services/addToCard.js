@@ -1,16 +1,16 @@
 export default function addToCart(product) {
   const productChange = product;
-  const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-  if (cartItems === null) {
+  const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+  if (cartProducts === null) {
     productChange.quantity = 1;
-    return localStorage.setItem('cartItems', JSON.stringify([{ ...productChange }]));
+    return localStorage.setItem('cartProducts', JSON.stringify([{ ...productChange }]));
   }
-  const itemRepetido = cartItems.find((item) => item.id === productChange.id);
+  const itemRepetido = cartProducts.find((item) => item.id === productChange.id);
   if (itemRepetido) {
-    const indexOfItemInCart = cartItems.indexOf(itemRepetido);
-    cartItems[indexOfItemInCart].quantity += 1;
-    return localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    const indexOfItemInCart = cartProducts.indexOf(itemRepetido);
+    cartProducts[indexOfItemInCart].quantity += 1;
+    return localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }
   productChange.quantity = 1;
-  return localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...productChange }]));
+  return localStorage.setItem('cartProducts', JSON.stringify([...cartProducts, { ...productChange }]));
 }
