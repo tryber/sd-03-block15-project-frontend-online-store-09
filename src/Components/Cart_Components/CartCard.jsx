@@ -18,6 +18,7 @@ class CartCard extends Component {
     if (quantity < stock) {
       return this.setState((state) => ({ quantity: state.quantity + 1 }));
     }
+    return null;
   }
 
 
