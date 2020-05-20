@@ -4,15 +4,23 @@ import '../Product_Components/ProductList.css';
 class CartCard extends Component {
   constructor(props) {
     super(props);
-    this.state = { quantity: 1 };
+    this.state = {
+      quantity: 1,
+      stock: this.props.product.available_quantity,
+    };
 
     this.subQuantity = this.subQuantity.bind(this);
     this.addQuantity = this.addQuantity.bind(this);
   }
 
   addQuantity() {
-    this.setState((state) => ({ quantity: state.quantity + 1 }));
+    const { stock, quantity } = this.state;
+    if (quantity < stock) {
+      return this.setState((state) => ({ quantity: state.quantity + 1 }));
+    }
+    return null;
   }
+
 
   subQuantity() {
     const { quantity } = this.state;
@@ -23,7 +31,6 @@ class CartCard extends Component {
   render() {
     const { product: { title, thumbnail, price } } = this.props;
     const { quantity } = this.state;
-
     return (
       <div className="cartProduct">
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
