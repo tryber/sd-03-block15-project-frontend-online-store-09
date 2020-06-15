@@ -3,15 +3,15 @@ import CartCard from './CartCard';
 import MakePurchase from '../Checkout/MakePurchase';
 import '../Product_Components/ProductList.css';
 
-class CartList extends Component {
+class CartProducts extends Component {
   render() {
     const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     return (
       <div>
         <MakePurchase />
         <div className="display-products">
-          {cartProducts.map((item) => (
-            <CartCard key={item.id} product={item} />
+          {cartProducts.map((product) => (
+            <CartCard key={product.id} product={product} />
           ))}
         </div>
       </div>
@@ -19,4 +19,4 @@ class CartList extends Component {
   }
 }
 
-export default CartList;
+export default CartProducts;

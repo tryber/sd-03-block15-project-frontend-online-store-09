@@ -5,9 +5,9 @@ export default function addToCart(product) {
     productChange.quantity = 1;
     return localStorage.setItem('cartProducts', JSON.stringify([{ ...productChange }]));
   }
-  const itemRepetido = cartProducts.find((item) => item.id === productChange.id);
-  if (itemRepetido) {
-    const indexOfItemInCart = cartProducts.indexOf(itemRepetido);
+  const repeat = cartProducts.find((item) => item.id === productChange.id);
+  if (repeat) {
+    const indexOfItemInCart = cartProducts.indexOf(repeat);
     cartProducts[indexOfItemInCart].quantity += 1;
     return localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }

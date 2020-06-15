@@ -1,5 +1,5 @@
 import React from 'react';
-import CartList from '../CartList';
+import CartProducts from '../CartProducts';
 
 class ShoppingCart extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class ShoppingCart extends React.Component {
       <div>
         {cartProducts === null
           ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
-          : <CartList />}
+          : <CartProducts />}
       </div>
     );
   }
